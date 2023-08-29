@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Cleaving"
         tools:targetApi="31">
         <activity
+            android:name=".OnBoardingPage"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
