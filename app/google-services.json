@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "720238703186",
+    "firebase_url": "https://cleaving-2e4c0-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "cleaving-2e4c0",
+    "storage_bucket": "cleaving-2e4c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720238703186:android:e47c89a46bc0dd26a0e58b",
+        "android_client_info": {
+          "package_name": "com.example.cleaving"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720238703186-jiuub95hq8k1khpr5m6cmpl1agtd8tn3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKk_uy8fpgxahyGCex3ljDCrbgdE11Tw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720238703186-jiuub95hq8k1khpr5m6cmpl1agtd8tn3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
