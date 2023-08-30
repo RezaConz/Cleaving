@@ -4,32 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:background="@color/white">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_marginTop="-25dp"
-            android:src="@drawable/home"/>
-
-        <LinearLayout
-            android:id="@+id/upper"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/poin_img"
-                />
-
-        </LinearLayout>
-
-    <Button
-        android:id="@+id/logout"
-        android:layout_marginTop="300dp"
+    <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="logout"/>
+        android:layout_height="match_parent"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav"
+        app:itemTextColor="@color/green"
+        app:itemIconTint="@drawable/nav_item_selected"
+        >
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
 
 </RelativeLayout>
