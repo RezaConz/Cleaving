@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OnBoardingPage"
-    android:background="@color/secondary">
+    android:background="@color/cleaving_secondary">
 
     <ImageView
         android:id="@+id/OnBoardingPage"
@@ -26,7 +26,7 @@
             android:text="Welcome to \nCleaving!"
             android:textAlignment="center"
             android:textSize="34dp"
-            android:fontFamily="@font/poppins_extrabold"
+            android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/black"
             android:layout_gravity="center"/>
 
@@ -53,6 +53,6 @@
             android:layout_gravity="center"
             android:text="START"
             android:textSize="18dp"
-            android:fontFamily="@font/poppins_extrabold"/>
+            android:fontFamily="@font/poppins_semibold"/>
     </LinearLayout>
 </RelativeLayout>
