@@ -19,7 +19,7 @@
         android:background="@color/white"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav"
-        app:itemTextColor="@color/green"
+        app:itemTextColor="@color/cleaving_primary"
         app:itemIconTint="@drawable/nav_item_selected"
         >
     </com.google.android.material.bottomnavigation.BottomNavigationView>
