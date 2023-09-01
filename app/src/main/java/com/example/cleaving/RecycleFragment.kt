@@ -1,59 +1,186 @@
 package com.example.cleaving
 
+import android.app.AlertDialog
+import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.example.cleaving.databinding.ActivityRegistrasiBinding
+import com.example.cleaving.databinding.BottomSheetPickupBinding
+import com.example.cleaving.databinding.FragmentRecycleBinding
+import com.example.cleaving.databinding.LayoutSampahBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RecycleFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RecycleFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var _binding: FragmentRecycleBinding
+    private val binding get() = _binding!!
+    private lateinit var binding2: LayoutSampahBinding
+    private lateinit var binding3: ActivityRegistrasiBinding
+    private lateinit var binding4:BottomSheetPickupBinding
+
+    private lateinit var database: DatabaseReference
+
+    private lateinit var dialog: BottomSheetDialog
+
+    private var totalItems:Int = 0
+    private var totalPoin:Int = 0
+    private var poinKardus:Int = 0
+    private var poinMinyak:Int = 0
+    private var poinBotol:Int = 0
+    private var poinKaleng:Int = 0
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recycle, container, false)
+        _binding = FragmentRecycleBinding.inflate(inflater,container,false)
+        binding2 = LayoutSampahBinding.inflate(inflater,container,false)
+        binding3 = ActivityRegistrasiBinding.inflate(inflater,container,false)
+        binding4 = BottomSheetPickupBinding.inflate(inflater,container,false)
+        database = FirebaseDatabase.getInstance().getReference("Users")
+
+        binding.tvTotalPoins.setText("0 Poin")
+
+        setDataKardus()
+        setDataBotol()
+        setDataMinyak()
+        setDataKaleng()
+
+        binding.btnPickUp.setOnClickListener {
+            showBottomSheet()
+//            database.child(binding3.username.text.toString()).child("poin").setValue(totalPoin)
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RecycleFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RecycleFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+//            binding4.saveandcontinue.setOnClickListener { this }
+    }
+
+    private fun showBottomSheet(){
+        dialog = BottomSheetDialog(requireContext(),R.style.BottomSheetDialogTheme)
+        dialog.setContentView(R.layout.bottom_sheet_pickup)
+
+        val builder = AlertDialog.Builder(requireContext())
+        val view = layoutInflater.inflate(R.layout.bottom_sheet_pickup,null)
+        if (dialog.window != null){
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
+        dialog.show()
+
+        view.findViewById<Button>(R.id.saveandcontinue).setOnClickListener {
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(
+                    R.id.frame_layout,
+                    SummaryOrderFragment(),
+                    SummaryOrderFragment::class.java.simpleName
+                )
+                addToBackStack(null)
+                commit()
             }
+            dialog.dismiss()
+        }
+    }
+    private fun setDataKardus(){
+        var itemCount1: Int = 0
+
+        binding.layoutsampah.imageAdd1.setOnClickListener{
+            itemCount1 = itemCount1 + 1
+            binding.layoutsampah.tvTotalKardus.setText(""+itemCount1)
+            poinKardus = 15 * itemCount1
+            setTotalPoin()
+        }
+
+        binding.layoutsampah.imageMinus1.setOnClickListener{
+            if (itemCount1 > 0) {
+                itemCount1 = itemCount1 - 1
+                binding.layoutsampah.tvTotalKardus.setText(""+itemCount1)
+            }
+            poinKardus = 15 * itemCount1
+            setTotalPoin()
+        }
+    }
+    private fun setDataBotol(){
+        var itemCount1: Int = 0
+
+        binding.layoutsampah.imageAdd2.setOnClickListener{
+            itemCount1 = itemCount1 + 1
+            binding.layoutsampah.tvTotalBotol.setText(""+itemCount1)
+            poinBotol = 5 * itemCount1
+            setTotalPoin()
+        }
+
+        binding.layoutsampah.imageMinus2.setOnClickListener{
+            if (itemCount1 > 0) {
+                itemCount1 = itemCount1 - 1
+                binding.layoutsampah.tvTotalBotol.setText(""+itemCount1)
+            }
+            poinBotol = 5 * itemCount1
+            setTotalPoin()
+        }
+    }
+    private fun setDataMinyak(){
+        var itemCount1: Int = 0
+
+        binding.layoutsampah.imageAdd3.setOnClickListener{
+            itemCount1 = itemCount1 + 1
+            binding.layoutsampah.tvTotalMinyak.setText(""+itemCount1)
+            poinMinyak = 15 * itemCount1
+            setTotalPoin()
+        }
+
+        binding.layoutsampah.imageMinus3.setOnClickListener{
+            if (itemCount1 > 0) {
+                itemCount1 = itemCount1 - 1
+                binding.layoutsampah.tvTotalMinyak.setText(""+itemCount1)
+            }
+            poinMinyak= 15 * itemCount1
+            setTotalPoin()
+        }
+    }
+    private fun setDataKaleng(){
+        var itemCount1: Int = 0
+
+        binding.layoutsampah.imageAdd4.setOnClickListener{
+            itemCount1 = itemCount1 + 1
+            binding.layoutsampah.tvTotalKaleng.setText(""+itemCount1)
+            poinKaleng = 3 * itemCount1
+            setTotalPoin()
+        }
+
+        binding.layoutsampah.imageMinus4.setOnClickListener{
+            if (itemCount1 > 0) {
+                itemCount1 = itemCount1 - 1
+                binding.layoutsampah.tvTotalKaleng.setText(""+itemCount1)
+            }
+            poinKaleng = 3 * itemCount1
+            setTotalPoin()
+        }
+    }
+    private fun setTotalPoin() {
+        totalPoin = poinKardus + poinBotol + poinMinyak + poinKaleng
+        binding.tvTotalPoins.setText(totalPoin.toString() + " Poins")
+
     }
 }
