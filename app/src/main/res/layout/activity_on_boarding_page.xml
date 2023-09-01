@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OnBoardingPage">
+    tools:context=".OnBoardingPage"
+    android:background="@color/cleaving_tertiary">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/OnBoardingPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/onboarding"
+        android:layout_marginTop="60dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/OnBoardingPage">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to \nCleaving!"
+            android:textAlignment="center"
+            android:textSize="34dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Join us in transforming waste into valuable resources through our recycling program to take the first step towards a cleaner and more sustainable environment!"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:fontFamily="@font/mulish_regular"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"/>
+
+        <Button
+            android:id="@+id/ButtonOnBoarding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="251dp"
+            android:height="71dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_shape"
+            android:layout_gravity="center"
+            android:text="START"
+            android:textSize="18dp"
+            android:fontFamily="@font/poppins_semibold"/>
+    </LinearLayout>
+</RelativeLayout>
