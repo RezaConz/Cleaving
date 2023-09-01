@@ -3,7 +3,6 @@ package com.example.cleaving
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.cleaving.Home.HomeFragment
 import com.example.cleaving.Recycle.RecycleFragment
 import com.example.cleaving.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
