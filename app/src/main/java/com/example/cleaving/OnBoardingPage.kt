@@ -23,7 +23,7 @@ class OnBoardingPage : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (firebashAuth.currentUser != null) {
-            startActivity(Intent(this, HomeFragment::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
         }
     }
 }
