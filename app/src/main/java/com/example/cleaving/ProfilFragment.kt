@@ -1,10 +1,14 @@
 package com.example.cleaving
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.cleaving.LoginRegistrasi.LoginActivity
+import com.example.cleaving.databinding.FragmentProfilBinding
+import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,10 +20,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ProfilFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ProfilFragment : Fragment() {
+class ProfilFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var binding: FragmentProfilBinding
+    lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +40,30 @@ class ProfilFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profil, container, false)
+        binding = FragmentProfilBinding.inflate(inflater,container, false)
+        return binding.root
+    }
+
+    var firebaseAuth = FirebaseAuth.getInstance()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val user = auth.currentUser
+
+        if (user != null){
+            binding.UsernameProfile.text = user.displayName
+            binding.EmailProfile.text = user.email
+        }
+
+        binding.LogoutButton.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View) {
+        if (v.id == R.id.LogoutButton){
+            firebaseAuth.signOut()
+            startActivity(Intent(context, LoginActivity::class.java))
+            activity?.finish()
+        }
     }
 
     companion object {
