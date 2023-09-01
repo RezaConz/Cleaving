@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager.widget.ViewPager
-import com.example.cleaving.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,8 +21,6 @@ class HomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    private var binding :FragmentHomeBinding? = null
-    lateinit var vpSlider : ViewPager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -38,18 +34,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view : View = inflater.inflate(R.layout.fragment_home, container, false)
-
-
-        val arraySLider = ArrayList<Int>()
-        arraySLider.add(R.drawable.vouchergrab)
-        arraySLider.add(R.drawable.arrvial_img)
-        arraySLider.add(R.drawable.arrvial_img)
-
-        val adapterSlider = ItemSliderAdapter(arraySLider, activity)
-        vpSlider.adapter = adapterSlider
-
-        return view
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     companion object {

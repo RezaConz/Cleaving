@@ -1,18 +1,14 @@
-package com.example.cleaving
+package com.example.cleaving.Recycle
 
 import android.app.AlertDialog
-import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.cleaving.R
 import com.example.cleaving.databinding.ActivityRegistrasiBinding
 import com.example.cleaving.databinding.BottomSheetPickupBinding
 import com.example.cleaving.databinding.FragmentRecycleBinding
@@ -78,7 +74,7 @@ class RecycleFragment : Fragment() {
     }
 
     private fun showBottomSheet(){
-        dialog = BottomSheetDialog(requireContext(),R.style.BottomSheetDialogTheme)
+        dialog = BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
         dialog.setContentView(R.layout.bottom_sheet_pickup)
 
         val builder = AlertDialog.Builder(requireContext())
@@ -88,9 +84,10 @@ class RecycleFragment : Fragment() {
         }
         dialog.show()
 
-        view.findViewById<Button>(R.id.saveandcontinue).setOnClickListener {
+        dialog.findViewById<Button>(R.id.saveandcontinue)?.setOnClickListener {
             val mFragmentManager = parentFragmentManager
             mFragmentManager.beginTransaction().apply {
+                dialog.dismiss()
                 replace(
                     R.id.frame_layout,
                     SummaryOrderFragment(),
@@ -99,7 +96,6 @@ class RecycleFragment : Fragment() {
                 addToBackStack(null)
                 commit()
             }
-            dialog.dismiss()
         }
     }
     private fun setDataKardus(){
