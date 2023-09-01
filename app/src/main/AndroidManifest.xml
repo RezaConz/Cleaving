@@ -12,6 +12,17 @@
         android:theme="@style/Theme.Cleaving"
         tools:targetApi="31">
         <activity
+            android:name=".SplashScreen"
+            android:label="@string/title_activity_splash_screen"
+            android:theme="@style/Theme.Cleaving"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".OnBoardingPage"
             android:exported="false" />
         <activity
@@ -22,13 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginRegistrasi.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"/>
     </application>
 
 </manifest>
