@@ -17,4 +17,5 @@
     <color name="grey_secondary">#ABABAB</color>
     <color name="grey_tertiary">#606060</color>
     <color name="black_secondary">#181D27</color>
+    <color name="red">#E64646</color>
 </resources>

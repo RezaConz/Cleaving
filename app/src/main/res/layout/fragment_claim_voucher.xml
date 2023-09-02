@@ -23,6 +23,7 @@
             android:layout_marginTop="-248dp"/>
 
         <ImageView
+            android:id="@+id/BAckClaimVoucher"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/back_white"
@@ -187,6 +188,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/UseVoucher"
             android:layout_width="315dp"
             android:layout_height="60dp"
             android:layout_marginTop="200dp"

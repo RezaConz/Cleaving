@@ -19,6 +19,7 @@
             android:layout_marginTop="40dp">
 
             <ImageView
+                android:id="@+id/BackClaimPoints"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/back"/>
@@ -26,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="100dp"
                 android:layout_marginTop="-5dp"
                 android:text="Claim Points"
                 android:fontFamily="@font/poppins_semibold"
@@ -34,6 +35,7 @@
                 android:textColor="@color/black"/>
 
             <ImageView
+                android:id="@+id/OrderHistory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
@@ -56,6 +58,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/Pulsa"
                 android:layout_width="100dp"
                 android:layout_height="106dp"
                 app:cardCornerRadius="15dp"
@@ -88,6 +91,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/Token"
                 android:layout_width="100dp"
                 android:layout_height="106dp"
                 app:cardCornerRadius="15dp"
