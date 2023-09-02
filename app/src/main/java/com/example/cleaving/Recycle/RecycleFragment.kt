@@ -36,6 +36,12 @@ class RecycleFragment : Fragment() {
     private var poinBotol:Int = 0
     private var poinKaleng:Int = 0
 
+    var itemCountKardus: Int = 0
+//    var itemCount1: Int = 0
+//    var itemCount1: Int = 0
+//    var itemCount1: Int = 0
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,6 +91,7 @@ class RecycleFragment : Fragment() {
         dialog.show()
 
         dialog.findViewById<Button>(R.id.saveandcontinue)?.setOnClickListener {
+            kirimData()
             val mFragmentManager = parentFragmentManager
             mFragmentManager.beginTransaction().apply {
                 dialog.dismiss()
@@ -98,22 +105,31 @@ class RecycleFragment : Fragment() {
             }
         }
     }
+    private fun kirimData(){
+        if (poinKardus>0){
+            val bundle = Bundle()
+            bundle.putString("kardusjumlah",itemCountKardus.toString())
+            val fragment = SummaryOrderFragment()
+            fragment.arguments = bundle
+            fragmentManager?.beginTransaction()?.replace(R.id.frame_layout,fragment)?.commit()
+        }
+
+    }
     private fun setDataKardus(){
-        var itemCount1: Int = 0
 
         binding.layoutsampah.imageAdd1.setOnClickListener{
-            itemCount1 = itemCount1 + 1
-            binding.layoutsampah.tvTotalKardus.setText(""+itemCount1)
-            poinKardus = 15 * itemCount1
+            itemCountKardus += 1
+            binding.layoutsampah.tvTotalKardus.setText(""+itemCountKardus)
+            poinKardus = 15 * itemCountKardus
             setTotalPoin()
         }
 
         binding.layoutsampah.imageMinus1.setOnClickListener{
-            if (itemCount1 > 0) {
-                itemCount1 = itemCount1 - 1
-                binding.layoutsampah.tvTotalKardus.setText(""+itemCount1)
+            if (itemCountKardus > 0) {
+                itemCountKardus -= 1
+                binding.layoutsampah.tvTotalKardus.setText(""+itemCountKardus)
             }
-            poinKardus = 15 * itemCount1
+            poinKardus = 15 * itemCountKardus
             setTotalPoin()
         }
     }

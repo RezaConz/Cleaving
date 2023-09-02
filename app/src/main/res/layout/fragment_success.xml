@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SuccessFragment"
+    android:layout_marginHorizontal="50dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SUCCESS!"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="36dp"/>
+    <ImageView
+        android:layout_marginTop="-20dp"
+        android:paddingHorizontal="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/success" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your order will be pick up soon.
+Thank you for choosing Cleaving!"
+            android:paddingHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:fontFamily="@font/mulish_regular"
+            android:textSize="18dp"/>
+
+        <Button
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Track your orders"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/white"
+            android:background="@drawable/button_shape"/>
+        <Button
+            android:id="@+id/backhome"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="BACK TO HOME"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            android:background="@drawable/button_greenoutsite"/>
+
+    </LinearLayout>
+</FrameLayout>
