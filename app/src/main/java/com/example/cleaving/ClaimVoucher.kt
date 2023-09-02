@@ -50,7 +50,17 @@ class ClaimVoucher : Fragment(), View.OnClickListener{
 
                 dialog2.show()
                 dialog2.findViewById<Button>(R.id.ButtonFinsihPoints)?.setOnClickListener {
-
+                    val mFragmentManager = parentFragmentManager
+                    mFragmentManager.beginTransaction().apply {
+                        dialog2.dismiss()
+                        replace(
+                            R.id.frame_layout,
+                            VoucherLastFragment(),
+                            VoucherLastFragment::class.java.simpleName
+                        )
+                        addToBackStack(null)
+                        commit()
+                    }
                 }
             }
         }
