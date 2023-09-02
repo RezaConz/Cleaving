@@ -115,27 +115,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_gravity="bottom"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tvJumlahBarang"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="3dp"
-                android:layout_weight="1"
-                android:textColor="@color/black"
-                android:background="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            android:layout_height="180dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/backgrond">
 
             <TextView
                 android:id="@+id/tvTotalPoins"
@@ -143,26 +132,30 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="3dp"
                 android:layout_weight="1"
+                android:layout_marginTop="20dp"
+                android:text=""
                 android:gravity="center"
                 android:fontFamily="@font/poppins_semibold"
-                android:background="@color/white"
+                android:textSize="15sp"
                 android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnPickUp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/button_shape"
+                android:text="Arrange Pickup"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnPickUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="70dp"
-            android:background="@color/green"
-            android:text="Arrange Pickup"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
 
     </LinearLayout>
 

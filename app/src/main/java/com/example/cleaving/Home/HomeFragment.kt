@@ -69,19 +69,25 @@ class HomeFragment : Fragment(), View.OnClickListener {
         binding.grabVoucher2.setOnClickListener(this)
         binding.grabVoucher3.setOnClickListener(this)
     }
-
+    fun replaceFragment(fragment: Fragment) {
+        val fragmentManager = parentFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.commit()
+    }
     override fun onClick(v: View) {
         if (v.id == R.id.ButtonStartRecycling) {
-            val mFragmentManager = parentFragmentManager
-            mFragmentManager.beginTransaction().apply {
-                replace(
-                    R.id.frame_layout,
-                    RecycleFragment(),
-                    RecycleFragment::class.java.simpleName
-                )
-                addToBackStack(null)
-                commit()
-            }
+            replaceFragment(RecycleFragment())
+//            val mFragmentManager = parentFragmentManager
+//            mFragmentManager.beginTransaction().apply {
+//                replace(
+//                    R.id.frame_layout,
+//                    RecycleFragment(),
+//                    RecycleFragment::class.java.simpleName
+//                )
+//                addToBackStack(null)
+//                commit()
+//            }
         }
         if (v.id == R.id.ButtonVoucherSeeMore) {
             val mFragmentManager = parentFragmentManager
