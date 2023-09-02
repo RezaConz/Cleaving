@@ -123,6 +123,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@id/or"
+        android:gravity="center"
         android:layout_marginHorizontal="30dp">
 
         <ImageButton
@@ -130,7 +131,6 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:src="@drawable/icon_fb"
-            android:layout_marginEnd="25dp"
             android:background="@drawable/button_medsos"
             />
 
@@ -139,7 +139,6 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:src="@drawable/icon_googe"
-            android:layout_marginEnd="25dp"
             android:background="@drawable/button_medsos"
             />
         <ImageButton
