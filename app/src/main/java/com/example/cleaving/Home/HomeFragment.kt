@@ -68,6 +68,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         binding.grabVoucher1.setOnClickListener(this)
         binding.grabVoucher2.setOnClickListener(this)
         binding.grabVoucher3.setOnClickListener(this)
+        binding.ButtonOrderHidtory.setOnClickListener(this)
     }
     fun replaceFragment(fragment: Fragment) {
         val fragmentManager = parentFragmentManager
@@ -144,6 +145,18 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     R.id.frame_layout,
                     ClaimVoucher(),
                     ClaimVoucher::class.java.simpleName
+                )
+                addToBackStack(null)
+                commit()
+            }
+        }
+        if (v.id == R.id.ButtonOrderHidtory) {
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(
+                    R.id.frame_layout,
+                    OrderHistoryOngoing(),
+                    OrderHistoryOngoing::class.java.simpleName
                 )
                 addToBackStack(null)
                 commit()

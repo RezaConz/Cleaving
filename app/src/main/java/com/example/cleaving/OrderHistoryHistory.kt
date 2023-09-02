@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.cleaving.databinding.FragmentOrderHistoryHistoryBinding
 import com.example.cleaving.databinding.FragmentOrderHistoryOngoingBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -14,12 +15,12 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [OrderHistoryOngoing.newInstance] factory method to
+ * Use the [OrderHistoryHistory.newInstance] factory method to
  * create an instance of this fragment.
  */
-class OrderHistoryOngoing : Fragment(), View.OnClickListener {
+class OrderHistoryHistory : Fragment(), View.OnClickListener {
 
-    private lateinit var binding: FragmentOrderHistoryOngoingBinding
+    private lateinit var binding: FragmentOrderHistoryHistoryBinding
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -36,18 +37,18 @@ class OrderHistoryOngoing : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentOrderHistoryOngoingBinding.inflate(inflater, container, false)
+        binding= FragmentOrderHistoryHistoryBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.BackOrderHistoryOngoing.setOnClickListener(this)
-        binding.ButtonHistory.setOnClickListener(this)
+        binding.BackOrderHistoryHistory.setOnClickListener(this)
+        binding.ButtonOnGoing.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        if (v.id == R.id.BackOrderHistoryOngoing) {
+        if (v.id == R.id.BackOrderHistoryHistory) {
             val mFragmentManager = parentFragmentManager
             mFragmentManager.beginTransaction().apply {
                 replace(
@@ -59,13 +60,13 @@ class OrderHistoryOngoing : Fragment(), View.OnClickListener {
                 commit()
             }
         }
-        if (v.id == R.id.ButtonHistory) {
+        if (v.id == R.id.ButtonOnGoing) {
             val mFragmentManager = parentFragmentManager
             mFragmentManager.beginTransaction().apply {
                 replace(
                     R.id.frame_layout,
-                    OrderHistoryHistory(),
-                    OrderHistoryHistory::class.java.simpleName
+                    OrderHistoryOngoing(),
+                    OrderHistoryOngoing::class.java.simpleName
                 )
                 addToBackStack(null)
                 commit()
@@ -79,12 +80,12 @@ class OrderHistoryOngoing : Fragment(), View.OnClickListener {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment OrderHistoryOngoing.
+         * @return A new instance of fragment OrderHistoryHistory.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            OrderHistoryOngoing().apply {
+            OrderHistoryHistory().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
