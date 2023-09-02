@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.cleaving.Recycle.RecycleFragment
+import com.example.cleaving.databinding.FragmentHomeBinding
+import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,16 +19,14 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class HomeFragment : Fragment(), View.OnClickListener {
+
+    private lateinit var binding: FragmentHomeBinding
+    lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -34,7 +35,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     companion object {
@@ -55,5 +57,91 @@ class HomeFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.ButtonStartRecycling.setOnClickListener(this)
+        binding.ButtonVoucherSeeMore.setOnClickListener(this)
+        binding.PointsText.setOnClickListener(this)
+        binding.grabVoucher1.setOnClickListener(this)
+        binding.grabVoucher2.setOnClickListener(this)
+        binding.grabVoucher3.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View) {
+        if (v.id == R.id.ButtonStartRecycling) {
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(
+                    R.id.frame_layout,
+                    RecycleFragment(),
+                    RecycleFragment::class.java.simpleName
+                )
+                addToBackStack(null)
+                commit()
+            }
+        }
+        if (v.id == R.id.ButtonVoucherSeeMore) {
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(
+                    R.id.frame_layout,
+                    ClaimPoints(),
+                    ClaimPoints::class.java.simpleName
+                )
+                addToBackStack(null)
+                commit()
+            }
+        }
+        if (v.id == R.id.PointsText) {
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(
+                    R.id.frame_layout,
+                    ClaimPoints(),
+                    ClaimPoints::class.java.simpleName
+                )
+                addToBackStack(null)
+                commit()
+            }
+        }
+        if (v.id == R.id.grab_voucher1) {
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(
+                    R.id.frame_layout,
+                    ClaimVoucher(),
+                    ClaimVoucher::class.java.simpleName
+                )
+                addToBackStack(null)
+                commit()
+            }
+        }
+        if (v.id == R.id.grab_voucher2) {
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(
+                    R.id.frame_layout,
+                    ClaimVoucher(),
+                    ClaimVoucher::class.java.simpleName
+                )
+                addToBackStack(null)
+                commit()
+            }
+        }
+        if (v.id == R.id.grab_voucher3) {
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(
+                    R.id.frame_layout,
+                    ClaimVoucher(),
+                    ClaimVoucher::class.java.simpleName
+                )
+                addToBackStack(null)
+                commit()
+            }
+        }
     }
 }
