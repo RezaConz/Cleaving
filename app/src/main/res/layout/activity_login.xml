@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".LoginRegistrasi.LoginActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
     <TextView
         android:id="@+id/login"
         android:layout_width="wrap_content"
@@ -157,6 +165,7 @@
         android:gravity="center"
         android:layout_marginTop="75dp"
         android:layout_below="@id/icon"
+        android:layout_marginBottom="100dp"
         >
 
         <TextView
@@ -177,4 +186,6 @@
             />
 
     </LinearLayout>
+    </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
