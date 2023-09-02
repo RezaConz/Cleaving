@@ -74,14 +74,14 @@
                     android:id="@+id/pickupschedule"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="-"
+                    android:text="Sun, 03 Sept at 18.00"
                     android:fontFamily="@font/poppins_semibold"
                     android:textSize="14sp"/>
             </LinearLayout>
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="80dp"
                 android:src="@drawable/button_change_pickup"/>
         </LinearLayout>
         <ImageView
@@ -113,12 +113,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="-"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:textSize="16sp"/>
+                    android:text="Kpg. Sutoyo No. 620, Bilzen, Tanjungbalai."
+                    android:fontFamily="@font/mulish_regular"
+                    android:textSize="12sp"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                 <Button
@@ -152,7 +153,156 @@
             android:src="@drawable/line"
             android:layout_marginTop="15dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Ringkasan Daur Ulang"
+            android:fontFamily="@font/mulish_regular"
+            android:textSize="12sp"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                tools:listitem="@layout/list_item"/>
+
+        </ScrollView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:drawableLeft="@drawable/discount"
+            android:drawableRight="@drawable/arrow_right"
+            android:text="1 Voucher is applied"
+            android:fontFamily="@font/poppins_semibold"
+            android:paddingHorizontal="25dp"
+            android:textSize="16dp"
+            android:background="@drawable/button_medsos"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Summary"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Items"
+                android:fontFamily="@font/mulish_regular"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="- Pcs"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Weight"
+                android:fontFamily="@font/mulish_regular"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- Kg"
+                android:gravity="end"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:src="@drawable/line"
+            android:layout_marginTop="7dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Point"
+                android:fontFamily="@font/mulish_regular"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:gravity="end"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/poin_img"/>
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:text="Points"
+                android:background="@drawable/button_shape"
+                android:gravity="center"
+                android:layout_marginStart="15dp"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:fontFamily="@font/mulish_regular"/>
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:text="-"
+                android:textColor="@color/black"
+                android:gravity="center"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="180dp"
+                android:src="@drawable/vector" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_pickup"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/button_shape"
+            android:text="Pick Up"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
 </FrameLayout>
