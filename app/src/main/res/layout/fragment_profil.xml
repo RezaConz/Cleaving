@@ -21,16 +21,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="-380dp"
+            android:layout_marginTop="-360dp"
             android:paddingStart="30dp">
 
-            <TextView
-                android:id="@+id/ButtonBackProfile"
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="&lt;"
-                android:textSize="34dp"
-                android:textColor="@color/grey"/>
+                android:src="@drawable/back"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -48,7 +45,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/profile"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="40dp"/>
 
         <TextView
             android:id="@+id/UsernameProfile"
