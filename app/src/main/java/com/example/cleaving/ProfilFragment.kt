@@ -48,13 +48,6 @@ class ProfilFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val user = auth.currentUser
-
-        if (user != null){
-            binding.UsernameProfile.text = user.displayName
-            binding.EmailProfile.text = user.email
-        }
-
         binding.LogoutButton.setOnClickListener(this)
     }
 
